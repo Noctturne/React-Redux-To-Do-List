@@ -7,7 +7,7 @@ function App() {
   return (
       <Router>
         <Header/>
-        <div className="container">
+        <div className="container-fluid p-0 m-0">
           <Switch>
             <Route exact path="/" component={Tasks}/>
             <Route exact path="/tasks/new" component={FormTask}/>
