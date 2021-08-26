@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTasksRedux } from '../../redux/actions/taskActions';
 
+import Task from './Task';
+import Errors from '../layout/Errors';
+import Spinner from '../layout/Spinner';
+
 const Tasks = () => {
     const dispatch = useDispatch();
     
@@ -12,21 +16,21 @@ const Tasks = () => {
         loadingTasks();
     }, []);
     
-    
+    const tasks = useSelector(state => state.tasks.tasks);
+    const error = useSelector((state) => state.tasks.error);
+    const loading = useSelector((state) => state.tasks.loading);
 
     return (
         <main className="tasks">
-            <div className="row">
-                <div className="col-sm-6 col-lg-4 mb-4">
-                    <div className="card">
-                        <div className="card-body">
-                            <h4 className="card-title"> Title </h4>
-                            <p className="card-text"> Description example </p>
-                            <small className="text-muted"> 20:33 </small>
-                        </div>
-                    </div>
-                </div>
+            {loading ? <Spinner/> : 
+                <div className="row g-0">
+                {error ? <Errors msg=" Oops! Something happened "/> : null }
+                {tasks.map(task => (
+                    <Task key={task.id} task={task}/>
+                ))}
             </div>
+            }  
+
             <Link to={"/tasks/new"} className="btn-secondary btn-floating position-fixed rounded-circle"><i className="fas fa-plus text-primary"></i></Link> 
         </main>
     )
