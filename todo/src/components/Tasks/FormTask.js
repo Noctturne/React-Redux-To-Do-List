@@ -29,11 +29,14 @@ const FormTask = ({history}) => {
         onSubmit: values => {
             createTask(values);
             history.push('/');
-        }
-    })
+
+        },
+    });
+
+
 
     return (
-        <section className="col offset-md-2 col-md-8 my-4">
+        <section className="col offset-md-2 col-md-8 offset-lg-3 col-lg-6 my-4">
             {error ? <Errors msg=" Oops! Something happened "/> : null }
             <form className="text-center" onSubmit={formik.handleSubmit}>
                 <div className="input-group mb-2">
@@ -57,8 +60,9 @@ const FormTask = ({history}) => {
                         value={formik.values.date} onChange={formik.handleChange} onBlur={formik.handleBlur}></input>
                 </div>
                 <div className="d-flex justify-content-center">
-                    {loading ? <Spinner/> : <button type="submit" className="btn btn-primary text-light"> New task </button>}  
+                    {loading ? <Spinner/> : <button type="submit" className="btn btn-primary text-light"> Add task </button>}  
                 </div>
+
             </form>
         </section>
     )

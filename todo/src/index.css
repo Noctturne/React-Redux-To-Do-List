@@ -1,2 +1,11 @@
 /* BUTTONS */
 .btn-floating{ padding: 15px 20px; bottom: 60px; right: 40px; }
+
+.container-center{
+    min-height: 90vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+}

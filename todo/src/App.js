@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Tasks from './components/Tasks/Tasks';
 import FormTask from './components/Tasks/FormTask';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 

@@ -1,7 +1,7 @@
 // Types
 import { ADD_TASK, ADD_TASK_SUCCESS, ADD_TASK_ERROR,
     GET_TASKS, GET_TASKS_SUCCESS, GET_TASKS_ERROR,
-    DELETE_TASK, DELETE_TASK_SUCCESS, DELETE_TASK_ERROR } from '../types';
+    DELETE_TASK, DELETE_TASK_SUCCESS, DELETE_TASK_ERROR} from '../types';
 import axiosClient from '../../config/axios';
 
 // Crear tareas
@@ -89,3 +89,5 @@ const deleteTaskAPIError = (state) => ({
     type: DELETE_TASK_ERROR,
     payload: state
 });
+
+

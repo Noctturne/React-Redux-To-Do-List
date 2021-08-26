@@ -1,7 +1,7 @@
 // Types
 import { ADD_TASK, ADD_TASK_SUCCESS, ADD_TASK_ERROR,
     GET_TASKS, GET_TASKS_SUCCESS, GET_TASKS_ERROR,
-    DELETE_TASK, DELETE_TASK_SUCCESS, DELETE_TASK_ERROR   } from '../types';
+    DELETE_TASK, DELETE_TASK_SUCCESS, DELETE_TASK_ERROR} from '../types';
 
 const initialState = {
     tasks: [],
@@ -44,12 +44,12 @@ export default function(state = initialState, action){
                 ...state,
                 selectedTask: action.payload
             }
-            case DELETE_TASK_SUCCESS:
-                return{
-                    ...state,
-                    tasks: state.tasks.filter(task => task.id !== state.selectedTask),
-                    selectedTask: null
-                }
+        case DELETE_TASK_SUCCESS:
+            return{
+                ...state,
+                tasks: state.tasks.filter(task => task.id !== state.selectedTask),
+                selectedTask: null
+            }
         default:
             return state;
     }
