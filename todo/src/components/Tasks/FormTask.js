@@ -14,7 +14,7 @@ const FormTask = () => {
                     <input type="date" class="form-control mx-2" id="date"></input>
                 </div>
                 <div className="d-flex justify-content-center">
-                    <button type="submit" className="btn btn-dark"> New task </button>
+                    <button type="submit" className="btn btn-primary text-light"> New task </button>
                 </div>
             </form>
         </section>

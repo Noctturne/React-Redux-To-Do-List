@@ -14,7 +14,7 @@ const Tasks = () => {
                     </div>
                 </div>
             </div>
-            <Link to={"/tasks/new"} className="btn-floating bg-dark text-blue"><i className="fas fa-plus"></i></Link> 
+            <Link to={"/tasks/new"} className="btn-secondary btn-floating position-fixed rounded-circle"><i className="fas fa-plus text-primary"></i></Link> 
         </main>
     )
 }
