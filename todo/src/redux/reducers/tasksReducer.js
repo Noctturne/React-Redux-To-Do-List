@@ -1,3 +1,6 @@
+// Types
+import { ADD_TASK, ADD_TASK_SUCCESS, ADD_TASK_ERROR } from '../types';
+
 const initialState = {
     tasks: [],
     error: false,
