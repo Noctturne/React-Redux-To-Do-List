@@ -1,0 +1,40 @@
+{
+    "tasks": [
+      {
+        "id": 1,
+        "title": "First test task",
+        "description": "Description, first task",
+        "date": "2021-08-26"
+      },
+      {
+        "id": 2,
+        "title": "Second test task",
+        "description": "Description, second task",
+        "date": "2021-06-20"
+      },
+      {
+        "id": 3,
+        "title": "Third test task",
+        "description": "Description, third task",
+        "date": "2019-02-02"
+      },
+      {
+        "id": 4,
+        "title": "Forth test task",
+        "description": "Description, forth task",
+        "date": "2021-08-25"
+      },
+      {
+        "id": 5,
+        "title": "Fifth test task",
+        "description": "Description, fifth task",
+        "date": "2009-11-21"
+      },
+      {
+        "id": 6,
+        "title": "Sixth test task",
+        "description": "Description, sixth task",
+        "date": "2020-04-12"
+      }
+    ]
+  }
