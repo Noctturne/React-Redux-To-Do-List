@@ -8,7 +8,6 @@ export function createTaskRedux(task){
         dispatch( addTaskAPI() );
             
         try {
-            console.log(task);
             await axiosClient.post('/tasks', task);
             dispatch( addTaskAPISuccess(task) );
         } catch (e) {

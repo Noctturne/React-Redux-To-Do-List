@@ -1,14 +1,20 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createTaskRedux } from '../../redux/actions/taskActions';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const FormTask = () => {
+import Spinner from '../layout/Spinner';
+import Errors from '../layout/Errors';
+
+const FormTask = ({history}) => {
     const dispatch = useDispatch();
     const createTask = task => dispatch( createTaskRedux(task) );
 
+    // Errores y loading
+    const loading = useSelector((state) => state.tasks.loading);
+    const error = useSelector((state) => state.tasks.error);
 
     const formik = useFormik({
         initialValues: {
@@ -22,11 +28,13 @@ const FormTask = () => {
         }),
         onSubmit: values => {
             createTask(values);
+            history.push('/');
         }
     })
 
     return (
         <section className="col offset-md-2 col-md-8 my-4">
+            {error ? <Errors msg=" Oops! Something happened "/> : null }
             <form className="text-center" onSubmit={formik.handleSubmit}>
                 <div className="input-group mb-2">
                     <input type="text" className="form-control mx-2" id="title" placeholder="Title" 
@@ -49,7 +57,7 @@ const FormTask = () => {
                         value={formik.values.date} onChange={formik.handleChange} onBlur={formik.handleBlur}></input>
                 </div>
                 <div className="d-flex justify-content-center">
-                    <button type="submit" className="btn btn-primary text-light"> New task </button>
+                    {loading ? <Spinner/> : <button type="submit" className="btn btn-primary text-light"> New task </button>}  
                 </div>
             </form>
         </section>
