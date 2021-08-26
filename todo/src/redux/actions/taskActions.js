@@ -1,6 +1,7 @@
 // Types
 import { ADD_TASK, ADD_TASK_SUCCESS, ADD_TASK_ERROR,
-    GET_TASKS, GET_TASKS_SUCCESS, GET_TASKS_ERROR } from '../types';
+    GET_TASKS, GET_TASKS_SUCCESS, GET_TASKS_ERROR,
+    DELETE_TASK, DELETE_TASK_SUCCESS, DELETE_TASK_ERROR } from '../types';
 import axiosClient from '../../config/axios';
 
 // Crear tareas
@@ -58,5 +59,33 @@ const getTasksAPISuccess = (tasks) => ({
 
 const getTasksAPIError = state => ({
     type: GET_TASKS_ERROR,
+    payload: state
+});
+
+// Eliminar tarea
+export function deleteTaskRedux(id){
+    return async (dispatch) => {
+        dispatch(deleteTaskAPI(id));
+
+        try {
+            const res = await axiosClient.delete(`/tasks/${id}`);
+            dispatch(deleteTaskAPISuccess());
+        } catch (e) {
+            dispatch ( deleteTaskAPIError(true) );
+        }
+    }
+}
+
+const deleteTaskAPI = (id) => ({
+    type: DELETE_TASK,
+    payload: id
+});
+
+const deleteTaskAPISuccess = () => ({
+    type: DELETE_TASK_SUCCESS,
+});
+
+const deleteTaskAPIError = (state) => ({
+    type: DELETE_TASK_ERROR,
     payload: state
 });
