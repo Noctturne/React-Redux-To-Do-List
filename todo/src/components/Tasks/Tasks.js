@@ -1,6 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { getTasksRedux } from '../../redux/actions/taskActions';
+
 const Tasks = () => {
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        const loadingTasks = () => dispatch(getTasksRedux())
+        loadingTasks();
+    }, []);
+    
+    
+
     return (
         <main className="tasks">
             <div className="row">
