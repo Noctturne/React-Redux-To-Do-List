@@ -1,12 +1,15 @@
 // Types
 import { ADD_TASK, ADD_TASK_SUCCESS, ADD_TASK_ERROR } from '../types';
+import axiosClient from '../../config/axios';
 
 // Crear tareas
 export function createTaskRedux(task){
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch( addTaskAPI() );
-
+            
         try {
+            console.log(task);
+            await axiosClient.post('/tasks', task);
             dispatch( addTaskAPISuccess(task) );
         } catch (e) {
             console.log(e);
